@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHive.Web", "SmartHive.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHive.Web.Tests", "SmartHive.Web.Tests\SmartHive.Web.Tests.csproj", "{6FF76C89-FDF0-457B-A6B5-9B200CC36DEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHive.Models", "SmartHive.Models\SmartHive.Models.csproj", "{ACDCD29B-EF05-4AF2-9D8E-496346576125}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6FF76C89-FDF0-457B-A6B5-9B200CC36DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FF76C89-FDF0-457B-A6B5-9B200CC36DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FF76C89-FDF0-457B-A6B5-9B200CC36DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDCD29B-EF05-4AF2-9D8E-496346576125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDCD29B-EF05-4AF2-9D8E-496346576125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDCD29B-EF05-4AF2-9D8E-496346576125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDCD29B-EF05-4AF2-9D8E-496346576125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
