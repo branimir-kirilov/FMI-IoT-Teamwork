@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using SmartHive.Web.Models;
-using SmartHive.Models;
-using SmartHive.Authentication.ApplicationManagers;
 using SmartHive.Authentication.Providers;
 using SmartHive.Factories;
 
