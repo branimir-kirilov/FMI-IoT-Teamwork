@@ -10,6 +10,7 @@ namespace SmartHive.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using SmartHive.Web.App_Start.NinjectModules;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +62,11 @@ namespace SmartHive.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Load(new AuthenticationNinjectModule());
+            kernel.Load(new DataNinjectModule());
+            kernel.Load(new FactoriesNinjectModule());
+            kernel.Load(new ServicesNinjectModule());
+            kernel.Load(new ProvidersNinjectModule());
         }        
     }
 }
