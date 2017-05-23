@@ -31,7 +31,7 @@ namespace SmartHive.Authentication.ApplicationManagers
             {
                 RequiredLength = 6,
                 RequireNonLetterOrDigit = false,
-                RequireDigit = true,
+                RequireDigit = false,
                 RequireLowercase = false,
                 RequireUppercase = false,
             };

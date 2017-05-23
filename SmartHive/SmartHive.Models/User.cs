@@ -15,7 +15,7 @@ namespace SmartHive.Models
 
         }
 
-        public User(string username, string email, string name, string description, string profilePicUrl)
+        public User(string username, string email, string name, string description)
         {
             this.UserName = username;
             this.Email = email;

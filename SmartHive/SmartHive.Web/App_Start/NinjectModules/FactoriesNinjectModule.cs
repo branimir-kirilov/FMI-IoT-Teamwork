@@ -8,7 +8,7 @@ using System.Web;
 
 namespace SmartHive.Web.App_Start.NinjectModules
 {
-    public class FactoriesNinjectModules : NinjectModule
+    public class FactoriesNinjectModule : NinjectModule
     {
         public override void Load()
         {
