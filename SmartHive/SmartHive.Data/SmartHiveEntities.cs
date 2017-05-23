@@ -9,7 +9,7 @@ namespace SmartHive.Data
     public class SmartHiveEntities : IdentityDbContext<User>, ISmartHiveEntities
     {
         public SmartHiveEntities()
-            : base("SmartHiveDb", throwIfV1Schema: false)
+            : base("SmartBeeHiveDb", throwIfV1Schema: false)
         {
             this.Configuration.AutoDetectChangesEnabled = true;
 

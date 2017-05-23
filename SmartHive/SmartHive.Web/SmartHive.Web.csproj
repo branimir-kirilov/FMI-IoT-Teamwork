@@ -276,6 +276,16 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartHive.Data\SmartHive.Data.csproj">
+      <Project>{4B300D74-A863-4FAA-862A-935DB3AAC214}</Project>
+      <Name>SmartHive.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartHive.Models\SmartHive.Models.csproj">
+      <Project>{ACDCD29B-EF05-4AF2-9D8E-496346576125}</Project>
+      <Name>SmartHive.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

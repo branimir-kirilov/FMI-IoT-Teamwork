@@ -56,6 +56,15 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\ISmartHiveEntities.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Migrations\201705221925082_InitialMigration.cs" />
+    <Compile Include="Migrations\201705221925082_InitialMigration.Designer.cs">
+      <DependentUpon>201705221925082_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231059284_test.cs" />
+    <Compile Include="Migrations\201705231059284_test.Designer.cs">
+      <DependentUpon>201705231059284_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="SmartHiveEntities.cs" />
@@ -70,6 +79,14 @@
       <Project>{ACDCD29B-EF05-4AF2-9D8E-496346576125}</Project>
       <Name>SmartHive.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705221925082_InitialMigration.resx">
+      <DependentUpon>201705221925082_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231059284_test.resx">
+      <DependentUpon>201705231059284_test.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
