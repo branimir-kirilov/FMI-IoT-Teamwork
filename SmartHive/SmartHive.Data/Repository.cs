@@ -9,7 +9,12 @@ namespace SmartHive.Data
     {
         public Repository(ISmartHiveEntities dbContext)
         {
-            this.Context = dbContext ?? throw new ArgumentNullException("Context cant be null");
+            if (dbContext == null)
+            {
+                throw new ArgumentNullException("Context cant be null");
+            }
+
+            this.Context = dbContext;
         }
 
         protected ISmartHiveEntities Context { get; set; }
@@ -24,7 +29,8 @@ namespace SmartHive.Data
             get { return this.Context.DbSet<T>(); }
         }
 
-        public void Add(T entity) {
+        public void Add(T entity)
+        {
             this.Context.SetAdded(entity);
         }
 

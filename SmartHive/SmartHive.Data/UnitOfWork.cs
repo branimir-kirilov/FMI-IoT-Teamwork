@@ -9,7 +9,12 @@ namespace SmartHive.Data
 
         public UnitOfWork(ISmartHiveEntities dbContext)
         {
-            this.dbContext = dbContext ?? throw new ArgumentNullException("Context cant be null");
+            if (dbContext == null)
+            {
+                throw new ArgumentNullException("Context cant be null");
+            }
+
+            this.dbContext = dbContext;
         }
 
         public void Commit()
