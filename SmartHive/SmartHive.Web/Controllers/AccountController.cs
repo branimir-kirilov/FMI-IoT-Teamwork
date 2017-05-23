@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SmartHive.Web.Models;
 using SmartHive.Models;
+using SmartHive.Authentication.ApplicationManagers;
 
 namespace SmartHive.Web.Controllers
 {

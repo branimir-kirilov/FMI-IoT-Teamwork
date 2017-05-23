@@ -185,7 +185,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -276,6 +275,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SmartHive.Authentication\SmartHive.Authentication.csproj">
+      <Project>{F868A660-5D10-4A24-AFF9-63185A9D36E7}</Project>
+      <Name>SmartHive.Authentication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SmartHive.Data\SmartHive.Data.csproj">
       <Project>{4B300D74-A863-4FAA-862A-935DB3AAC214}</Project>
       <Name>SmartHive.Data</Name>
