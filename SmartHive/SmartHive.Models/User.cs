@@ -12,7 +12,7 @@ namespace SmartHive.Models
 
         public User() : base(string.Empty)
         {
-
+            this.HiveCollection = new HashSet<Hive>();
         }
 
         public User(string username, string email, string name, string description)
@@ -25,7 +25,7 @@ namespace SmartHive.Models
 
         public string Name { get; set; }
         public string Description { get; set; }
-        
+
         public virtual ICollection<Hive> HiveCollection
         {
             get { return this.Hives; }

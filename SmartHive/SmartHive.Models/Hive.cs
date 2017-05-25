@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartHive.Models
 {
@@ -9,10 +10,11 @@ namespace SmartHive.Models
 
         }
 
-        public Hive(string name, string dataKey)
+        public Hive(string name, string dataKey, string userId)
         {
             this.Name = name;
             this.DataKey = dataKey;
+            this.UserId = userId;
         }
 
         [Key]
@@ -22,5 +24,9 @@ namespace SmartHive.Models
 
         public string DataKey { get; set; }
 
+        [ForeignKey("Owner")]
+        public string UserId { get; set; }
+
+        public virtual User Owner { get; set; }
     }
 }
