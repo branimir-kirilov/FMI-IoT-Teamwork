@@ -67,6 +67,7 @@
     <Compile Include="HttpContextAuthenticationProvider\GetCurrentUserId_Should.cs" />
     <Compile Include="HttpContextAuthenticationProvider\RegisterAndLoginUser_Should.cs" />
     <Compile Include="HttpContextAuthenticationProvider\SignInWithPassword_Should.cs" />
+    <Compile Include="HttpContextAuthenticationProvider\SignOut_Should.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
