@@ -9,6 +9,7 @@ namespace SmartHive.Web.App_Start.NinjectModules
         public override void Load()
         {
             this.Bind<IUserService>().To<UserService>();
+            this.Bind<IHiveService>().To<HiveService>();
         }
     }
 }

@@ -8,5 +8,9 @@ namespace SmartHive.Services.Contracts
         Hive GetHiveById(string id);
 
         IEnumerable<Hive> GetHivesByUserId(string id);
+
+        Hive CreateHive(string name, string dataKey, string userId);
+
+        void EditHive(int id, string name, string dataKey);
     }
 }

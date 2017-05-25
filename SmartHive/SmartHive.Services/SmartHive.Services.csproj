@@ -64,6 +64,10 @@
       <Project>{4B300D74-A863-4FAA-862A-935DB3AAC214}</Project>
       <Name>SmartHive.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmartHive.Factories\SmartHive.Factories.csproj">
+      <Project>{3C8A3D9B-CDC7-41C7-BB3A-18AD19507ACC}</Project>
+      <Name>SmartHive.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SmartHive.Models\SmartHive.Models.csproj">
       <Project>{ACDCD29B-EF05-4AF2-9D8E-496346576125}</Project>
       <Name>SmartHive.Models</Name>

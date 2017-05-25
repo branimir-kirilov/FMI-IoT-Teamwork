@@ -1,10 +1,6 @@
 ﻿using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using SmartHive.Factories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SmartHive.Web.App_Start.NinjectModules
 {
@@ -14,6 +10,7 @@ namespace SmartHive.Web.App_Start.NinjectModules
         {
             //Models factories
             this.Bind<IUserFactory>().ToFactory().InSingletonScope();
+            this.Bind<IHiveFactory>().ToFactory().InSingletonScope();
         }
     }
 }
