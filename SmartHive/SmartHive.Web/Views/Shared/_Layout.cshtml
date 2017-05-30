@@ -24,7 +24,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("My hives", "Index", "Controller")</li>
+                    
+                    @if (HttpContext.Current.GetOwinContext().Authentication.User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("My hives", "Index", "Hive")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
