@@ -55,9 +55,11 @@ namespace SmartHive.Web.Controllers
         }
 
         // GET: Hive
-        public async System.Threading.Tasks.Task<ActionResult> Details(int id)
+        public async System.Threading.Tasks.Task<ActionResult> Details(int id, int resultsCount)
         {
-            return View("Details", hiveService.GetHive($"EXO847SOXW7L55HJ&results=3"));
+            var dataKey = this.hiveService.GetHiveById(id).DataKey;
+
+            return View("Details", hiveService.GetHive($"{dataKey}&results={resultsCount}"));
         }
     }
 }
