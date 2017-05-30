@@ -12,5 +12,7 @@ namespace SmartHive.Services.Contracts
         Hive CreateHive(string name, string dataKey, string userId);
 
         void EditHive(int id, string name, string dataKey);
+
+        async Task<List<Car>> GetCarsAsync();
     }
 }
