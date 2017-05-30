@@ -67,12 +67,12 @@ namespace SmartHive.Services
             }
         }
 
-        public async Task<List<Hive>> GetHiveAsync()
+        public async Task<List<Hive>> GetHiveAsync(string dataKey)
         {
             using (HttpClient httpClient = new HttpClient())
             {
                 return JsonConvert.DeserializeObject<List<Hive>>(
-                    await httpClient.GetStringAsync(uri)
+                    await httpClient.GetStringAsync($"{uri}{dataKey}")
                 );
             }
         }

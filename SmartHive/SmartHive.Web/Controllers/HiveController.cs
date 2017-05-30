@@ -18,9 +18,9 @@ namespace SmartHive.Web.Controllers
             this.hiveService = hiveService;
         }
         // GET: Hive
-        public ActionResult Index()
+        public async System.Threading.Tasks.Task<ActionResult> IndexAsync()
         {
-            return View();
+            return View("index", await hiveService.GetHiveAsync());
         }
     }
 }
