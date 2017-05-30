@@ -2,7 +2,6 @@
 
 namespace SmartHive.Web.Models
 {  
-
     public class RegisterViewModel
     {
         public RegisterViewModel()

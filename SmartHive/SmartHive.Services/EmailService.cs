@@ -2,10 +2,11 @@
 using System.Net.Mail;
 using System.Text;
 using System.Diagnostics;
+using SmartHive.Services.Contracts;
 
 namespace SmartHive.Services
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
         public async Task SendAsync(string sendTo, string subject, string body)
         {
