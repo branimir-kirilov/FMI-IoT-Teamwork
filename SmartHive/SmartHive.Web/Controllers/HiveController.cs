@@ -51,10 +51,6 @@ namespace SmartHive.Web.Controllers
             
             var model = hives.ToPagedList(page, count);
 
-            //var hive = this.hiveService.GetHiveById(1);
-            //var model = this.viewModelFactory.CreateShortHiveViewModel(hive);
-            //return this.PartialView("_ShortHivePartial", model);
-
             return this.PartialView("_PagedHiveListPartial", model);
         }
 
