@@ -5,6 +5,8 @@ using System.Web.Mvc;
 using PagedList;
 using System.Linq;
 using SmartHive.Web.Factories;
+using SmartHive.Web.Models;
+using System.Collections.Generic;
 
 namespace SmartHive.Web.Controllers
 {
@@ -15,7 +17,10 @@ namespace SmartHive.Web.Controllers
         private readonly IAuthenticationProvider authProvider;
         private readonly IViewModelFactory viewModelFactory;
 
-        public HiveController(IHiveService hiveService, IAuthenticationProvider authProvider, IViewModelFactory viewModelFactory)
+        public HiveController(
+            IHiveService hiveService,
+            IAuthenticationProvider authProvider,
+            IViewModelFactory viewModelFactory)
         {
             if (hiveService == null)
             {
@@ -31,6 +36,7 @@ namespace SmartHive.Web.Controllers
             {
                 throw new ArgumentNullException(nameof(viewModelFactory));
             }
+
             this.hiveService = hiveService;
             this.authProvider = authProvider;
             this.viewModelFactory = viewModelFactory;
@@ -38,10 +44,16 @@ namespace SmartHive.Web.Controllers
 
 
         //GET: All
-        public ActionResult All(int count = 5, int page = 1)
+        public ActionResult All(int count = 3, int page = 1)
         {
-            var hives = this.hiveService.GetHivesByUserId(this.authProvider.CurrentUserId).Select(p => this.viewModelFactory.CreateShortHiveViewModel(p));
-            var model = hives.ToPagedList(count, page);
+            var userId = this.authProvider.CurrentUserId;
+            var hives = this.hiveService.GetHivesByUserId(userId).Select(p => this.viewModelFactory.CreateShortHiveViewModel(p));
+            
+            var model = hives.ToPagedList(page, count);
+
+            //var hive = this.hiveService.GetHiveById(1);
+            //var model = this.viewModelFactory.CreateShortHiveViewModel(hive);
+            //return this.PartialView("_ShortHivePartial", model);
 
             return this.PartialView("_PagedHiveListPartial", model);
         }

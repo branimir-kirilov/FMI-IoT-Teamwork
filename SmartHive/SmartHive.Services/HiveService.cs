@@ -76,7 +76,7 @@ namespace SmartHive.Services
         //    }
         //}
 
-        public Hive GetHiveById(string id)
+        public Hive GetHiveById(int id)
         {
             return this.hiveRepository.GetById(id);
         }
@@ -85,8 +85,5 @@ namespace SmartHive.Services
         {
             return this.hiveRepository.GetAll.Where(h => h.UserId == id).ToList();
         }
-
-
-
     }
 }

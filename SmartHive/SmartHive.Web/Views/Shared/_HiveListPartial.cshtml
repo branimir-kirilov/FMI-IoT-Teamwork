@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<SmartHive.Web.Models.ShortHiveViewModel>
 
-@foreach (var log in Model)
+
+<h1>we get here </h1>
+
+@foreach (var hive in Model)
 {
-    Html.RenderPartial("_ShortHivePartial", log);
+    <h1>we found one</h1>
+    Html.RenderPartial("_ShortHivePartial", hive);
 }

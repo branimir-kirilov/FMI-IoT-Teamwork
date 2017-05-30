@@ -6,15 +6,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="list">
-    <h3> Hello, @User.Identity.Name, here you can find a list of all your smart hives: </h3>
 
+<h3> Hello, @User.Identity.Name, here you can find a list of all your smart hives: </h3>
+
+<div id="list">
     @Html.Partial("_HiveListPartial", Model)
 
     <div class="pages total">
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-        @Html.PagedListPager(Model, page => Url.Action("All", "Post",
+        @Html.PagedListPager(Model, page => Url.Action("All", "Hive",
         new { page = page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
             new AjaxOptions()
             {

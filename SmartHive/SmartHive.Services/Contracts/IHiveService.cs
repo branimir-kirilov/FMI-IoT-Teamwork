@@ -6,7 +6,7 @@ namespace SmartHive.Services.Contracts
 {
     public interface IHiveService
     {
-        Hive GetHiveById(string id);
+        Hive GetHiveById(int id);
 
         IEnumerable<Hive> GetHivesByUserId(string id);
 
