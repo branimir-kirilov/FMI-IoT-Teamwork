@@ -8,7 +8,7 @@
 @{
     double[] humids = Model.Select(h => Convert.ToDouble(h.Humidity)).ToArray();
     double[] temps = Model.Select(h => Convert.ToDouble(h.Temperature)).ToArray();
-    DateTime[] dates = Model.Select(h => Convert.ToDateTime(h.CreatedAt)).ToArray();
+    string[] dates = Model.Select(h => Convert.ToDateTime(h.CreatedAt).ToShortTimeString()).ToArray();
 }
 
 @{
