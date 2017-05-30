@@ -6,8 +6,8 @@
 
 <h2>Details</h2>
 @foreach (var hive in Model) {
-    <h4>@hive.CreatedAt</h4>
-    <h4>@hive.Temperature</h4>
-    <h4>@hive.Humidity</h4>
+    <h4>Measured At: @hive.CreatedAt</h4>
+    <h4>Temperature: @hive.Temperature</h4>
+    <h4>Humidity: @hive.Humidity</h4>
 }
 
