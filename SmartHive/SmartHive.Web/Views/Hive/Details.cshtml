@@ -5,9 +5,48 @@
 }
 
 <h2>Details</h2>
-@foreach (var hive in Model) {
+@{
+    double[] humids = Model.Select(h => Convert.ToDouble(h.Humidity)).ToArray();
+    double[] temps = Model.Select(h => Convert.ToDouble(h.Temperature)).ToArray();
+    DateTime[] dates = Model.Select(h => Convert.ToDateTime(h.CreatedAt)).ToArray();
+}
+
+@{
+    var tempChart = new Chart(width: 600, height: 400)
+         .AddTitle("Temperature Chart")
+         .AddSeries(
+                name: "Temperature",
+                xValue: dates,
+                yValues: temps
+            );
+
+    var humidChart = new Chart(width: 600, height: 400)
+        .AddTitle("Humidity Chart")
+        .AddSeries(
+            name: "Humidity",
+            xValue: dates,
+            yValues: humids
+
+        );
+
+}
+
+<div class="col-md-6">
+    <img src="data:image/png;base64,@Convert.ToBase64String(tempChart.GetBytes("png"))" alt="Alternate Text" />
+</div>
+<div class="col-md-6">
+    <img src="data:image/png;base64,@Convert.ToBase64String(humidChart.GetBytes("png"))" alt="Alternate Text" />
+</div>
+
+<h3>Detailed history: </h3>
+
+@foreach (var hive in Model)
+{
     <h4>Measured At: @hive.CreatedAt</h4>
     <h4>Temperature: @hive.Temperature</h4>
     <h4>Humidity: @hive.Humidity</h4>
 }
+
+
+
 

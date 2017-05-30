@@ -5,8 +5,6 @@ using System.Web.Mvc;
 using PagedList;
 using System.Linq;
 using SmartHive.Web.Factories;
-using SmartHive.Web.Models;
-using System.Collections.Generic;
 
 namespace SmartHive.Web.Controllers
 {
