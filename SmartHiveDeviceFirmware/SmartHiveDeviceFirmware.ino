@@ -21,8 +21,8 @@ const char* FINGERPRINT = "78 60 18 44 81 35 BF DF 77 84 D4 0A 22 0D 9B 4E 6C DC
  */
 const int SEND_DATA_INTERVAL = 1000;         // time interval in milliseconds
 const String DEVICE_KEY = "IPLVKT0HDOBNMP54"; // the device key
-const char* WI_FI_SSID = "TUPKACHITE";       // the Wi-FI network's name
-const char* WI_FI_PASSWORD = "badjamal";              // the Wi-FI network's password
+const char* WI_FI_SSID = "SSID";       // the Wi-FI network's name
+const char* WI_FI_PASSWORD = "PW";              // the Wi-FI network's password
 /* 
  *  CONFIGURATION
  */
@@ -49,7 +49,7 @@ void loop()
     if((WiFiMulti.run() == WL_CONNECTED)) 
     {
         HTTPClient http;
-        http.begin(("https://api.thingspeak.com/update?key="+DEVICE_KEY+"&field2="+humidity), FINGERPRINT); // sends current humidty
+        http.begin(("https://api.thingspeak.com/update?key="+DEVICE_KEY+"&field2="+humidity), FINGERPRINT); // sends current humidity
         http.GET();
         http.end();
         delay(16000);
