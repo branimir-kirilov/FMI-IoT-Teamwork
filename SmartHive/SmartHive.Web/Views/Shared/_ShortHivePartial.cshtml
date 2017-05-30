@@ -2,6 +2,6 @@
 
 <div class="container well">
     <h3 class="media-heading">
-        @Model.Name
+        @Html.ActionLink(Model.Name, "Details", new { controller = "Hive", id = Model.Id })
     </h3>
 </div>

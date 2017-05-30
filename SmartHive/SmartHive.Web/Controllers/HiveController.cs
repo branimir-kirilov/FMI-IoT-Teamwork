@@ -48,16 +48,16 @@ namespace SmartHive.Web.Controllers
         {
             var userId = this.authProvider.CurrentUserId;
             var hives = this.hiveService.GetHivesByUserId(userId).Select(p => this.viewModelFactory.CreateShortHiveViewModel(p));
-            
+
             var model = hives.ToPagedList(page, count);
 
             return this.PartialView("_PagedHiveListPartial", model);
         }
 
-        //// GET: Hive
-        //public async System.Threading.Tasks.Task<ActionResult> Index()
-        //{
-        //    return View("index", await hiveService.GetHiveAsync($"uri"));
-        //}
+        // GET: Hive
+        public async System.Threading.Tasks.Task<ActionResult> Details(int id)
+        {
+            return View("Details", hiveService.GetHive($"EXO847SOXW7L55HJ&results=3"));
+        }
     }
 }
