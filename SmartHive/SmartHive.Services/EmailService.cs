@@ -2,6 +2,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Net;
 using System.Threading.Tasks;
+using SmartHive.Services.Contracts;
 
 namespace SmartHive.Services
 {
@@ -9,6 +10,7 @@ namespace SmartHive.Services
     {
         private readonly string companyEmail = "smarthivebg@gmail.com";
         private readonly string password = "123456smart";
+        
         public async Task SendAsync(string sendTo, string subject, string body)
         {
             string smtpAddress = "smtp.gmail.com";
