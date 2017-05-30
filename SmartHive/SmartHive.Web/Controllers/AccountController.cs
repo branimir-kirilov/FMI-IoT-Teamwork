@@ -93,7 +93,8 @@ namespace SmartHive.Web.Controllers
                     model.UserName,
                     model.Email,
                     model.Name,
-                    model.Description);
+                    model.Description,
+                    model.PhoneNumber);
                 var result = this.authenticationProvider.RegisterAndLoginUser(user, model.Password, isPersistent: false, rememberBrowser: true);
 
                 if (result.Succeeded)
