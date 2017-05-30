@@ -5,6 +5,9 @@ using SmartHive.Models;
 using SmartHive.Data.Contracts;
 using System.Linq;
 using SmartHive.Factories;
+using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace SmartHive.Services
 {
@@ -13,6 +16,7 @@ namespace SmartHive.Services
         private readonly IRepository<Hive> hiveRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IHiveFactory hiveFactory;
+        private readonly string uri = "https://someuri";
 
         public HiveService(
             IRepository<Hive> hiveRepository,
@@ -38,7 +42,7 @@ namespace SmartHive.Services
             this.unitOfWork = unitOfWork;
             this.hiveFactory = hiveFactory;
         }
-
+        
         public Hive CreateHive(string name, string dataKey, string userId)
         {
             var hive = this.hiveFactory.CreateHive(name, dataKey, userId);
@@ -63,6 +67,16 @@ namespace SmartHive.Services
             }
         }
 
+        public async Task<List<Hive>> GetHiveAsync()
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                return JsonConvert.DeserializeObject<List<Hive>>(
+                    await httpClient.GetStringAsync(uri)
+                );
+            }
+        }
+
         public Hive GetHiveById(string id)
         {
             return this.hiveRepository.GetById(id);
@@ -72,6 +86,8 @@ namespace SmartHive.Services
         {
             return this.hiveRepository.GetAll.Where(h => h.UserId == id).ToList();
         }
+
+
 
     }
 }

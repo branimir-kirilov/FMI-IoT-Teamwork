@@ -1,5 +1,6 @@
 ﻿using SmartHive.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SmartHive.Services.Contracts
 {
@@ -13,6 +14,6 @@ namespace SmartHive.Services.Contracts
 
         void EditHive(int id, string name, string dataKey);
 
-        async Task<List<Car>> GetCarsAsync();
+        Task<List<Hive>> GetHiveAsync();
     }
 }
