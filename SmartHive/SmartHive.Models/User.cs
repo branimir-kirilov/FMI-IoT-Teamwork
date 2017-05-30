@@ -25,7 +25,7 @@ namespace SmartHive.Models
 
         public string Name { get; set; }
         public string Description { get; set; }
-
+        
         public virtual ICollection<Hive> HiveCollection
         {
             get { return this.Hives; }
