@@ -27,7 +27,7 @@
                     
                     @if (HttpContext.Current.GetOwinContext().Authentication.User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("My hives", "Index", "Hive")</li>
+                        <li>@Html.ActionLink("My hives", "All", "Hive")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
