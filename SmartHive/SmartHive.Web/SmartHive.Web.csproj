@@ -257,6 +257,7 @@
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\ShortHiveViewModel.cs" />
+    <Compile Include="Models\Profile\UserProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -312,10 +313,10 @@
     <Content Include="Views\Shared\_PagedHiveListPartial.cshtml" />
     <Content Include="Views\Shared\_HiveListPartial.cshtml" />
     <Content Include="Views\Hive\Details.cshtml" />
+    <Content Include="Views\Profile\UserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
