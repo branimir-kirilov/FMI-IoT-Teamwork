@@ -8,6 +8,7 @@ namespace SmartHive.Services
 {
     public class EmailService : IEmailService
     {
+        // Doesn't work
         public async Task SendAsync(string sendTo, string subject, string body)
         {
             SmtpClient client = new SmtpClient();
