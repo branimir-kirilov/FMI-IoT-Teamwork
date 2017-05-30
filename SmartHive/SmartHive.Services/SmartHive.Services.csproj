@@ -69,6 +69,7 @@
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="HiveService.cs" />
+    <Compile Include="JsonModels\JsonHive.cs" />
     <Compile Include="SMSSenderService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

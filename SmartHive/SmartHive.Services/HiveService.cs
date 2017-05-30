@@ -7,6 +7,9 @@ using System.Linq;
 using SmartHive.Factories;
 using System.Threading.Tasks;
 using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SmartHive.Services.JsonModels;
 
 namespace SmartHive.Services
 {
@@ -15,7 +18,7 @@ namespace SmartHive.Services
         private readonly IRepository<Hive> hiveRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IHiveFactory hiveFactory;
-        private readonly string uri = "https://someuri";
+        private readonly string uri = "https://api.thingspeak.com/channels/279981/feeds.json?api_key=";
 
         public HiveService(
             IRepository<Hive> hiveRepository,
@@ -41,7 +44,7 @@ namespace SmartHive.Services
             this.unitOfWork = unitOfWork;
             this.hiveFactory = hiveFactory;
         }
-        
+
         public Hive CreateHive(string name, string dataKey, string userId)
         {
             var hive = this.hiveFactory.CreateHive(name, dataKey, userId);
@@ -66,15 +69,27 @@ namespace SmartHive.Services
             }
         }
 
-        //public async Task<List<Hive>> GetHiveAsync(string dataKey)
-        //{
-        //    using (HttpClient httpClient = new HttpClient())
-        //    {
-        //        return JsonConvert.DeserializeObject<List<Hive>>(
-        //            await httpClient.GetStringAsync($"{uri}{dataKey}")
-        //        );
-        //    }
-        //}
+        public IList<JsonHive> GetHive(string dataKey)
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                Task<string> response = httpClient.GetStringAsync($"{uri}{dataKey}");
+
+                JObject json = JObject.Parse(response.Result);
+
+                IList<JToken> results = json["feeds"].Children().ToList();
+
+                IList<JsonHive> hives = new List<JsonHive>();
+
+                foreach(var result in results)
+                {
+                    JsonHive hiveRes = result.ToObject<JsonHive>();
+                    hives.Add(hiveRes);
+                }
+
+                return hives;
+            }
+        }
 
         public Hive GetHiveById(int id)
         {
