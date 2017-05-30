@@ -14,6 +14,6 @@ namespace SmartHive.Services.Contracts
 
         void EditHive(int id, string name, string dataKey);
 
-        Task<List<Hive>> GetHiveAsync(string dataKey);
+       // Task<List<Hive>> GetHiveAsync(string dataKey);
     }
 }

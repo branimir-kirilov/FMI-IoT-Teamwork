@@ -1,6 +1,6 @@
 ﻿using SmartHive.Models;
 
-namespace SmartHive.Web.Models.Account
+namespace SmartHive.Web.Models
 {
     public class ShortHiveViewModel
     {

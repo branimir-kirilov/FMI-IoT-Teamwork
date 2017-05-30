@@ -7,7 +7,6 @@ using System.Linq;
 using SmartHive.Factories;
 using System.Threading.Tasks;
 using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace SmartHive.Services
 {
@@ -67,15 +66,15 @@ namespace SmartHive.Services
             }
         }
 
-        public async Task<List<Hive>> GetHiveAsync(string dataKey)
-        {
-            using (HttpClient httpClient = new HttpClient())
-            {
-                return JsonConvert.DeserializeObject<List<Hive>>(
-                    await httpClient.GetStringAsync($"{uri}{dataKey}")
-                );
-            }
-        }
+        //public async Task<List<Hive>> GetHiveAsync(string dataKey)
+        //{
+        //    using (HttpClient httpClient = new HttpClient())
+        //    {
+        //        return JsonConvert.DeserializeObject<List<Hive>>(
+        //            await httpClient.GetStringAsync($"{uri}{dataKey}")
+        //        );
+        //    }
+        //}
 
         public Hive GetHiveById(string id)
         {
