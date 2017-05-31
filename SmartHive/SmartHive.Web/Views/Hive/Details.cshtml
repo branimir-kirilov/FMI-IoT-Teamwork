@@ -42,9 +42,12 @@
 
 @foreach (var hive in Model)
 {
-    <h4>Measured At: @hive.CreatedAt</h4>
-    <h4>Temperature: @hive.Temperature</h4>
-    <h4>Humidity: @hive.Humidity</h4>
+    <h4><strong>Measured At: @hive.CreatedAt</strong></h4>
+    if (hive.Temperature != null)
+    {<h4>Temperature: @hive.Temperature</h4>}
+    if (hive.Humidity != null)
+    {<h4>Humidity: @hive.Humidity</h4>}
+    <hr/>
 }
 
 
