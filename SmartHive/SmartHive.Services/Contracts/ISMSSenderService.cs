@@ -1,7 +1,9 @@
-﻿namespace SmartHive.Services.Contracts
+﻿using System.Threading.Tasks;
+
+namespace SmartHive.Services.Contracts
 {
     public interface ISMSSenderService
     {
-        void Send(string sendTo, string text);
+        Task SendAsync(string sendTo, string text);
     }
 }

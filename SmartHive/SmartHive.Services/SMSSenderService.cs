@@ -1,4 +1,6 @@
 ﻿using SmartHive.Services.Contracts;
+using System;
+using System.Threading.Tasks;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
@@ -11,15 +13,22 @@ namespace SmartHive.Services
         private readonly string authToken = "5ebf770fda1fe337396ee6c2961da113";
         private readonly string companyNumber = "+18036755767";
 
-        public void Send(string sendTo, string text)
+        public async Task SendAsync(string sendTo, string text)
         {
-            TwilioClient.Init(accountSid, authToken);
+            try
+            {
+                TwilioClient.Init(accountSid, authToken);
 
-            MessageResource.Create(
-                from: new PhoneNumber(companyNumber),
-                to: new PhoneNumber(sendTo),
-                body: text
-            );
+                await MessageResource.CreateAsync(
+                    from: new PhoneNumber(companyNumber),
+                    to: new PhoneNumber(sendTo),
+                    body: text
+                );
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }   
         }
     }
 }
