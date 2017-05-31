@@ -1,7 +1,9 @@
-﻿using SmartHive.Authentication.Providers;
+﻿using PagedList;
+using SmartHive.Authentication.Providers;
 using SmartHive.Services.Contracts;
 using SmartHive.Web.Factories;
 using System;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace SmartHive.Web.Models.Account
@@ -45,6 +47,15 @@ namespace SmartHive.Web.Models.Account
             var model = this.viewModelFactory.CreateUserProfileViewModel(user);
 
             return View(model);
+        }
+
+        public ActionResult AllUsers(int count = 5, int page =1)
+        {
+            var users = this.userSerivce.GetUsers().Select(u => this.viewModelFactory.CreateShortUserViewModel(u));
+
+            var model = users.ToPagedList(page, count);
+
+            return this.PartialView("_PagedUserListPartial", model);
         }
     }
 }

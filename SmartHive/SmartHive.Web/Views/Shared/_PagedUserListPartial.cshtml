@@ -1,0 +1,29 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<SmartHive.Web.Models.Profile.ShortUserViewModel>
+
+@{
+    ViewBag.Title = "All Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3> Community of SmartHive: </h3>
+<p> Click on a user, to get the full information for it </p>
+
+<div id="list">
+    @Html.Partial("_UserListPartial", Model)
+
+    <div class="pages total">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("AllUsers", "Profile",
+        new { page = page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+            new AjaxOptions()
+            {
+                HttpMethod = "GET",
+                UpdateTargetId = "list",
+                InsertionMode = InsertionMode.Replace
+            }))
+    </div>
+</div>
+

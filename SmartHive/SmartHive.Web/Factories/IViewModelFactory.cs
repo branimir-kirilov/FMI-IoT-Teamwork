@@ -6,8 +6,10 @@ namespace SmartHive.Web.Factories
 {
     public interface IViewModelFactory
     {
-        //User profile
+        //User profiles
         UserProfileViewModel CreateUserProfileViewModel(User user);
+
+        ShortUserViewModel CreateShortUserViewModel(User user);
 
         //Hive
         ShortHiveViewModel CreateShortHiveViewModel(Hive hive);

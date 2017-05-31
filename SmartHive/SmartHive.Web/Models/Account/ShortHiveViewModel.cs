@@ -8,9 +8,11 @@ namespace SmartHive.Web.Models
         {
             this.Name = hive.Name;
             this.Id = hive.HiveId;
+            this.isInFunction = (hive.DataKey != null) ? true : false;
         }
 
         public string Name { get; set; }
         public int Id { get; set; }
+        public bool isInFunction { get; set; }
     }
 }

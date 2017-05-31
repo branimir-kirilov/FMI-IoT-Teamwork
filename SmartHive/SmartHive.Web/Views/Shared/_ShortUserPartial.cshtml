@@ -1,0 +1,8 @@
+﻿@model SmartHive.Web.Models.Profile.ShortUserViewModel
+
+<div class="container well">
+    <h3 class="media-heading">
+       @Html.ActionLink(Model.UserName, $"Details/{Model.UserName}", new { controller = "Profile" }) @Model.Name
+    </h3>
+</div>
+

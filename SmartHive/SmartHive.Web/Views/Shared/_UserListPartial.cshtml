@@ -1,0 +1,7 @@
+﻿@model IEnumerable<SmartHive.Web.Models.Profile.ShortUserViewModel>
+
+@foreach (var user in Model)
+{
+    Html.RenderPartial("_ShortUserPartial", user);
+}
+

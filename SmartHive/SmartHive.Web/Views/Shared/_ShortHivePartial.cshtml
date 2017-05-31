@@ -2,6 +2,14 @@
 
 <div class="container well">
     <h3 class="media-heading">
-        @Html.ActionLink(Model.Name, "Details", new { controller = "Hive", id = Model.Id, resultsCount = 10})
+        @{ if (Model.isInFunction)
+           {
+                  @Html.ActionLink(Model.Name, "Details", new { controller = "Hive", id = Model.Id, resultsCount = 10 })
+            }
+            else
+            {
+                <p>@Model.Name - <em>Not in function</em></p> 
+            }
+        }
     </h3>
 </div>
