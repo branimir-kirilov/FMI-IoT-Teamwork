@@ -24,7 +24,7 @@
 ### The application
 
 #### Our web application uses the ASP.NET MVC5 framework. The whole app is divided into several projects each having its own concern. We have introduced the core principles of good and maintainable code (SOLID principles). To resolve dependencies we use the IoC container Ninject
-![Screenshot](/screenshot/webapp.jpg)
+![Screenshot](/Screenshots/webapp.jpg)
 
 --------------------------------------
 
