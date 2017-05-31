@@ -11,6 +11,7 @@ namespace SmartHive.Web.App_Start.NinjectModules
             this.Bind<IUserService>().To<UserService>();
             this.Bind<IHiveService>().To<HiveService>();
             this.Bind<IEmailService>().To<EmailService>();
+            this.Bind<ISMSSenderService>().To<SMSSenderService>();
         }
     }
 }
