@@ -102,6 +102,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IEmailService.cs" />
     <Compile Include="Contracts\IHiveService.cs" />
+    <Compile Include="Contracts\ISMSSenderService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="HiveService.cs" />
