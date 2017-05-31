@@ -1,5 +1,6 @@
 ﻿using SmartHive.Models;
 using SmartHive.Web.Models;
+using SmartHive.Web.Models.Hive;
 using SmartHive.Web.Models.Profile;
 
 namespace SmartHive.Web.Factories
@@ -13,5 +14,6 @@ namespace SmartHive.Web.Factories
 
         //Hive
         ShortHiveViewModel CreateShortHiveViewModel(Hive hive);
+        AddHiveViewModel CreateAddHiveViewModel();
     }
 }

@@ -2,6 +2,7 @@
 using SmartHive.Authentication.Providers;
 using SmartHive.Services.Contracts;
 using SmartHive.Web.Factories;
+using SmartHive.Web.Models.Hive;
 using System;
 using System.Linq;
 using System.Web.Mvc;
@@ -56,6 +57,27 @@ namespace SmartHive.Web.Areas.Administration.Controllers
             var model = hives.ToPagedList(page, count);
 
             return this.PartialView("_PagedHiveListPartial", model);
+        }
+
+        public ActionResult Add()
+        {
+            return View(this.viewModelFactory.CreateAddHiveViewModel());
+        }
+
+        // Post: Add
+        [HttpPost]
+        public ActionResult Add(AddHiveViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = this.userService.GetUserByUsername(model.Username).Id;
+
+                var news = this.hiveService.CreateHive(model.Name, model.DataKey, userId);
+
+                return RedirectToAction("Index", "HivesAdministration");
+            }
+
+            return View(model);
         }
     }
 }

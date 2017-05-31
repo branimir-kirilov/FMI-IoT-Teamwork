@@ -258,6 +258,7 @@
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\ShortHiveViewModel.cs" />
+    <Compile Include="Models\Hive\AddHiveViewModel.cs" />
     <Compile Include="Models\Profile\ShortUserViewModel.cs" />
     <Compile Include="Models\Profile\UserProfileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -281,6 +282,7 @@
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Administration\Index.cshtml" />
     <Content Include="Areas\Administration\Views\UserAdministration\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\HivesAdministration\Add.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -322,7 +324,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\HivesAdministration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

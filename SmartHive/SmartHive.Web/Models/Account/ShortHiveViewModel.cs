@@ -4,7 +4,7 @@ namespace SmartHive.Web.Models
 {
     public class ShortHiveViewModel
     {
-        public ShortHiveViewModel(Hive hive)
+        public ShortHiveViewModel(SmartHive.Models.Hive hive)
         {
             this.Name = hive.Name;
             this.Id = hive.HiveId;

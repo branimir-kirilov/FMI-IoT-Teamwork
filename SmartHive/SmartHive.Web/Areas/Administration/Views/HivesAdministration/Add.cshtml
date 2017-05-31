@@ -1,0 +1,41 @@
+﻿@model SmartHive.Web.Models.Hive.AddHiveViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h3>Hello, @(this.User.Identity.Name)</h3>
+<div class="span3 well col-md-12">
+    @using (Html.BeginForm("Add", "HivesAdministration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+    
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DataKey, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.DataKey, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="submit-btn" class="btn btn-default" value="Add" />
+            </div>
+        </div>
+    }
+</div>
+
