@@ -57,7 +57,9 @@ namespace SmartHive.Web.Controllers
         {
             var dataKey = this.hiveService.GetHiveById(id).DataKey;
 
-            return View("Details", hiveService.GetHive($"{dataKey}&results={resultsCount}"));
+            var model = hiveService.GetHive($"{dataKey}&results={resultsCount}");
+
+            return View("Details", model);
         }
     }
 }
