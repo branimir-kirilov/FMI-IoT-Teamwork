@@ -15,12 +15,13 @@ namespace SmartHive.Models
             this.HiveCollection = new HashSet<Hive>();
         }
 
-        public User(string username, string email, string name, string description)
+        public User(string username, string email, string name, string description, string phoneNumber)
         {
             this.UserName = username;
             this.Email = email;
             this.Name = name;
             this.Description = description;
+            this.PhoneNumber = phoneNumber;
         }
 
         public string Name { get; set; }
