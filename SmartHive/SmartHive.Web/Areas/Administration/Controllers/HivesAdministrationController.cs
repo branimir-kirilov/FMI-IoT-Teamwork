@@ -1,9 +1,9 @@
-﻿using SmartHive.Authentication.Providers;
+﻿using PagedList;
+using SmartHive.Authentication.Providers;
 using SmartHive.Services.Contracts;
+using SmartHive.Web.Factories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SmartHive.Web.Areas.Administration.Controllers
@@ -13,11 +13,13 @@ namespace SmartHive.Web.Areas.Administration.Controllers
         private readonly IAuthenticationProvider authProvider;
         private readonly IUserService userService;
         private readonly IHiveService hiveService;
+        private readonly IViewModelFactory viewModelFactory;
 
         public HivesAdministrationController(
             IAuthenticationProvider authProvider,
             IUserService userService,
-            IHiveService hiveService)
+            IHiveService hiveService,
+            IViewModelFactory viewModelFactory)
         {
             if (authProvider == null)
             {
@@ -34,26 +36,26 @@ namespace SmartHive.Web.Areas.Administration.Controllers
                 throw new ArgumentNullException(nameof(hiveService));
             }
 
+            if (viewModelFactory == null)
+            {
+                throw new ArgumentNullException(nameof(viewModelFactory));
+            }
+
             this.authProvider = authProvider;
             this.userService = userService;
             this.hiveService = hiveService;
+            this.viewModelFactory = viewModelFactory;
         }
 
         // GET: Administration/HivesAdministration
         public ActionResult Index(int page = 1, int count = 15)
         {
-            var users = this.userService.GetUsers();
+            var userId = this.authProvider.CurrentUserId;
+            var hives = this.hiveService.GetAllHives().Select(p => this.viewModelFactory.CreateShortHiveViewModel(p));
 
-            var model = new List<UserViewModel>();
+            var model = hives.ToPagedList(page, count);
 
-            foreach (var user in users)
-            {
-                var isAdmin = this.authProvider.IsInRole(user.Id, "Administrator");
-                var viewModel = new UserViewModel(user, isAdmin);
-                model.Add(viewModel);
-            }
-
-            return this.View(model.ToPagedList(page, count));
+            return this.PartialView("_PagedHiveListPartial", model);
         }
     }
 }

@@ -16,5 +16,7 @@ namespace SmartHive.Services.Contracts
         void EditHive(int id, string name, string dataKey);
 
         IList<JsonHive> GetHive(string dataKey);
+
+        IEnumerable<Hive> GetAllHives();
     }
 }

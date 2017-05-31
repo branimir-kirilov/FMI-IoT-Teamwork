@@ -69,6 +69,11 @@ namespace SmartHive.Services
             }
         }
 
+        public IEnumerable<Hive> GetAllHives()
+        {
+            return this.hiveRepository.GetAll.ToList();
+        }
+
         public IList<JsonHive> GetHive(string dataKey)
         {
             using (HttpClient httpClient = new HttpClient())
